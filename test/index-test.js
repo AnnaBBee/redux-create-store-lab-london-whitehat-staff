@@ -19,11 +19,14 @@ describe('createStore', function() {
 
   describe('getState', function(){
     it('returns the default state based on the reducer for the candyStore', function(){
+      candyStore.dispatch({ type: "@@INIT" });
+
       expect(candyStore.getState()).toEqual([]);
     })
 
     it('returns the default state based on the reducer for the countStore', function(){
-      expect(countStore.getState()).toBeA('number')
+      countStore.dispatch({ type: "@@INIT" });
+      expect(countStore.getState()).toBeA('number');
       expect(countStore.getState()).toEqual(0)
     })
   })
